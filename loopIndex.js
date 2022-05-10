@@ -90,4 +90,5 @@ async function freeCheck(){
         
     }, 1100);
   };
+SendEmbed();
 setInterval(SendEmbed, 3600000);
