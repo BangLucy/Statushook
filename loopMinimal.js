@@ -47,7 +47,6 @@ if (runningMachine === 'Windows') {
 } else {
     footerURL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/2048px-Question_mark_%28black%29.svg.png'
 }
-
 function bytesToSize(bytes) {
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
     if (bytes == 0) return '0 Byte';
@@ -72,17 +71,11 @@ async function freeCheck(){
         .setTitle('PC Stats')
         .setAuthor('BangLucy', '', DevTwitter)
         .setURL(repoURL)
-        .addField('OS Arch', os.arch(), true)
-        .addField('OS Platform', os.platform(), true)
-        .addField('Uptime', `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`, true)
-        .addField('Total Memory', `${totalmem}`, true)
         .addField('Free Memory', `${freemem}`, true)
-        .addField('​\u200b', '​\u200b', true)
-        .addField('CPU', `${cpu.model()}`, true)
         .addField('CPU Free', `${cpuFree.toFixed(2)}%`, true)
-        .addField('CPU Usage', `${cpuUsed.toFixed(2)}%`, true)
+        .addField('​\u200b', '​\u200b', true)
+        .addField('Uptime', `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`, true)
         .setColor('#FFC0D4')
-        .setImage(neoURL)
         .setFooter(runningMachine, footerURL)
         .setTimestamp()
 
@@ -90,4 +83,4 @@ async function freeCheck(){
         
     }, 1100);
   };
-SendEmbed()
+setInterval(SendEmbed, 3600000);
