@@ -9,6 +9,7 @@ var runningMachine = ''
 var footerURL = ''
 var DevTwitter = 'https://twitter.com/BangLucyUwU'
 var cpuFree = ''
+neoURL = ''
 
 
 hook.setUsername('PC Stats');
@@ -24,8 +25,10 @@ let seconds = Math.floor(totalSeconds % 60);
 
 if (os.platform() === 'win32') {
     runningMachine = 'Windows'
+    neoURL = 'https://media.discordapp.net/attachments/491895122884165633/973567087186432000/unknown.png'
 } else if (os.platform() === 'linux') {
     runningMachine = 'Raspberry Pi'
+    neoURL = 'https://media.discordapp.net/attachments/491895122884165633/973567403575373824/unknown.png'
 }
 
 if (runningMachine === 'Windows') {
@@ -65,9 +68,10 @@ async function freeCheck(){
         .addField('Free Memory', `${freemem}`, true)
         .addField('​\u200b', '​\u200b', true)
         .addField('CPU', `${cpu.model()}`, true)
-        .addField('CPU Free', `${cpuFree}%`, true)
+        .addField('CPU Free', `${cpuFree.toFixed(2)}%`, true)
         .addField('CPU Usage', `${cpuUsed.toFixed(2)}%`, true)
         .setColor('#FFC0D4')
+        .setImage(neoURL)
         .setFooter(runningMachine, footerURL)
         .setTimestamp()
 
